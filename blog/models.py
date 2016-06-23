@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+from .choices import *
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -27,6 +28,11 @@ class Comment(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
+
+    status = models.IntegerField(choices=STATUS_CHOICES, default=1)
+    relevance = models.IntegerField(choices=RELEVANCE_CHOICES, default=1)
+
+    type = models.CharField(max_length=3)
 
     def approve(self):
         self.approved_comment = True
