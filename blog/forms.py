@@ -14,7 +14,7 @@ class CommentForm(forms.ModelForm):
     status = forms.ChoiceField(choices = STATUS_CHOICES, initial='', widget=forms.Select(), required=True)
     relevance = forms.ChoiceField(choices = RELEVANCE_CHOICES, required=True)
 
-    type = forms.ChoiceField(choices = TYPE_CHOICES)
+    typeCol = forms.ChoiceField(choices = TYPE_CHOICES, label='Type de collectivité')
     class Meta:
         model = Comment
-        fields = ('author','text')
+        fields = ('author','text','status','relevance','typeCol')

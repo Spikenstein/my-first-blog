@@ -23,6 +23,11 @@ h1, h2, h3, h4 {
     color: #828282;
 }
 
+.type {
+    color: #666666;
+    font-style: italic;
+}
+
 .save {
     float: right;
 }
@@ -48,4 +53,25 @@ h1, h2, h3, h4 {
 
 .comment {
     margin: 20px 0px 20px 20px;
+}
+
+.commentForm{
+  border-style: dashed;
+  border-width: thin;
+  background-color: #666666;
+}
+
+.commentForm th{
+    text-align: right;
+    vertical-align: top;
+    color: #FFFFFF;
+    padding: 5px;
+    border-style: dotted;;
+    border-width: thin;
+}
+
+.commentForm td{
+    padding: 5px;
+    border-style: dotted;;
+    border-width: thin;
 }

@@ -32,7 +32,7 @@ class Comment(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
     relevance = models.IntegerField(choices=RELEVANCE_CHOICES, default=1)
 
-    type = models.CharField(max_length=3)
+    typeCol = models.TextField()
 
     def approve(self):
         self.approved_comment = True
