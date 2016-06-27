@@ -1,0 +1,11 @@
+{% extends 'dgp/base.html' %}
+
+{% block content %}
+<div class="run">
+  <div class="date">
+    {{ run.date }}
+  </div>
+  <h1>{{ run.target }} : {{ run.typeCol }} </h1>
+  <p>{{ run.log|linebreaks }}</p>
+</div>
+{% endblock %}

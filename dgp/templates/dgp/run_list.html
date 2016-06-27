@@ -1,0 +1,21 @@
+{% extends 'dgp/base.html' %}
+
+{% block content %}
+    <h3>Historique</h3>
+    <table class="initCptRunTable">
+      <tr>
+        <th><div class="initCptRunTableTHContent">Cible</div></th>
+        <th><div class="initCptRunTableTHContent">Type</div></th>
+        <th><div class="initCptRunTableTHContent">Date</div></th>
+      </tr>
+    {% for run in runs %}
+            <tr>
+              <td><a href="{% url 'run_detail' pk=run.pk %}">{{ run.target }}</a></td>
+              <td>{{ run.typeCol}}</td>
+              <td>{{ run.date }}</td>
+          </tr>
+    {% endfor %}
+  </table>
+  <hr>
+  <a class="btn btn-default" href="{% url 'newRun' %}">Nouvelle exécution</a>
+{% endblock content %}

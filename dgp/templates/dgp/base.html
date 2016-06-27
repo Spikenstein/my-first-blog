@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>DjanGo+</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/dgp.css' %}">
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+    </head>
+    <body>
+        <div class="page-header">
+          {% if user.is_authenticated %}
+            <p class="top-menu">{{ user.username }}<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+          {% else %}
+            <p class="top-menu"><small>(<a href="{% url 'login' %}">Log in</a>)</small></p>
+          {% endif %}
+          <h1><a href="/dgp">DjanGo+</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
