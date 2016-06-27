@@ -1,11 +1,13 @@
 {% extends 'dgp/base.html' %}
 
 {% block content %}
+<h2><a href="/dgp">InitCPT</a></h2>
+<h3>Détails d'une exécution</h3>
 <div class="run">
   <div class="date">
     {{ run.date }}
   </div>
-  <h1>{{ run.target }} : {{ run.typeCol }} </h1>
+  <h2>{{ run.target }} : {{ run.typeCol }} </h2>
   <p>{{ run.log|linebreaks }}</p>
 </div>
 {% endblock %}

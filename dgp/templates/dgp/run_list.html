@@ -1,21 +1,39 @@
 {% extends 'dgp/base.html' %}
 
 {% block content %}
+    <h2><a href="/dgp">InitCPT</a></h2>
     <h3>Historique</h3>
-    <table class="initCptRunTable">
+    <table class="table">
       <tr>
-        <th><div class="initCptRunTableTHContent">Cible</div></th>
-        <th><div class="initCptRunTableTHContent">Type</div></th>
-        <th><div class="initCptRunTableTHContent">Date</div></th>
+        <th>Cible</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Utilisateur</th>
       </tr>
     {% for run in runs %}
             <tr>
               <td><a href="{% url 'run_detail' pk=run.pk %}">{{ run.target }}</a></td>
               <td>{{ run.typeCol}}</td>
               <td>{{ run.date }}</td>
+              <td>{{ run.user }}</td>
           </tr>
     {% endfor %}
+    <tr><td colspan="4">
+    <div class="dgp-tablepagination">
+    <span>
+        {% if runs.has_previous %}
+            <a href="?page={{ runs.previous_page_number }}">&lt;</a>
+        {% endif %}
+        <span>
+            {{ runs.number }} / {{ runs.paginator.num_pages }}
+        </span>
+        {% if runs.has_next %}
+            <a href="?page={{ runs.next_page_number }}">&gt;</a>
+        {% endif %}
+    </span>
+</div>
+  </td></tr>
   </table>
-  <hr>
-  <a class="btn btn-default" href="{% url 'newRun' %}">Nouvelle exécution</a>
+  <!-- <hr> -->
+  <a class="btn btn-primary" href="{% url 'newRun' %}">Nouvelle exécution</a>
 {% endblock content %}

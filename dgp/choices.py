@@ -1,5 +1,5 @@
 TYPE_CHOICES = (
-    ('CDG','Centre de gestion'),
-    ('COM','Commune'),
-    ('CCM','Communauté de communes'),
+    ('Centre de gestion','Centre de gestion'),
+    ('Commune','Commune'),
+    ('Communauté de communes','Communauté de communes'),
 )

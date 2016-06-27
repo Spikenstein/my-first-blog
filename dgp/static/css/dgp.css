@@ -1,5 +1,5 @@
 .page-header {
-    background-color: blue;
+    background-color: #23B9D6;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -14,8 +14,13 @@
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Helvetica',sans-serif;;
+html, h1, h2, h3, h4, td, th {
+    font-family: 'Droid Sans',sans-serif;;
+}
+
+h2 a{
+  color: #23B9D6;
+  text-decoration: none;
 }
 
 .date {
@@ -23,77 +28,39 @@ h1, h2, h3, h4 {
     color: #828282;
 }
 
-.type {
-    color: #666666;
-    font-style: italic;
-}
-
 .save {
     float: right;
 }
 
-.post-form textarea, .post-form input {
+.dgp-form textarea, .dgp-form input {
     width: 100%;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
-    font-size: 26pt;
+    font-size: 20pt;
     margin-right: 20px;
 }
 
-.post {
-    margin-bottom: 70px;
+.dgp-table{
+  border-style: solid;
 }
 
-.post h1 a, .post h1 a:visited {
-    color: #000000;
-}
-
-.comment {
-    margin: 20px 0px 20px 20px;
-}
-
-.commentForm{
-  border-style: dashed;
+.dgp-table th{
+  padding: 5px;
+  border-style: solid;
   border-width: thin;
-  background-color: #666666;
+  background-color: #23B9D6;
+  color: #FFFFFF;
 }
 
-.commentForm th{
-    text-align: right;
-    vertical-align: top;
-    color: #FFFFFF;
-    padding: 5px;
-    border-style: dotted;;
-    border-width: thin;
-}
-
-.commentForm td{
-    padding: 5px;
-    border-style: dotted;;
-    border-width: thin;
-}
-
-.initCptRunTable{
-  border-style: dashed;
-  border-width: thin;
-  background-color: #EEEEEE;
-}
-
-.initCptRunTable th{
-}
-
-.initCptRunTable td{
+.dgp-table td{
   padding: 5px;
   border-style: dotted;;
   border-width: thin;
 }
 
-.initCptRunTableTHContent{
-  background-color: #666666;
-  color: #FFFFFF;
-  padding: 5px;
-  margin:3px;
+.dgp-tablepagination{
+    text-align: right;
 }
