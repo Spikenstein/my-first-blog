@@ -9,19 +9,14 @@ $(document).ready(function(){
 });
 </script>
 <h2><a href="/dgp">InitCPT</a></h2>
-<h3>Nouvelle exécution</h3>
+<h3>Nouvelle exécution par sélection</h3>
 <form method="POST">
   {% csrf_token %}
-  <!-- <table > -->
-    {{ form|bootstrap_horizontal }}
-    <!-- <tr><td colspan="2"><button id="runButton" type="submit" class="save btn btn-default">Lancer</button></td ></tr>
-  </table> -->
-
-  <div class="form-group">
+    {{ selectionForm|bootstrap_horizontal }}
+    <div class="form-group">
         <div class="col-sm-10 col-sm-offset-2">
-          <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
           <button id="runButton" type="submit" class="save btn btn-primary">Lancer</button>
-        </div>
+    </div>
   </div>
 </form>
 {% endblock %}

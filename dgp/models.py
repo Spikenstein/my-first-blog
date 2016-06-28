@@ -6,7 +6,7 @@ from .choices import *
 class Run(models.Model):
     user = models.ForeignKey('auth.User')
     date = models.DateTimeField(default=timezone.now)
-
+    platform = models.TextField()
     typeCol = models.TextField()
     target  = models.TextField()
 

@@ -1,0 +1,22 @@
+{% extends 'dgp/base.html' %}
+{% load bootstrap %}
+{% block content %}
+<script>
+$(document).ready(function(){
+    $("#runButton").click(function(){
+        return confirm("Êtes vous sûr de vouloir lancer l'initialisation\nde type "+ $("#id_typeCol").val()+" sur l'instance " + $("#id_target").val()+" ?");
+    });
+});
+</script>
+<h2><a href="/dgp">InitCPT</a></h2>
+<h3>Nouvelle exécution avec saisie des paramètres</h3>
+<form method="POST">
+  {% csrf_token %}
+    {{ parametersForm|bootstrap_horizontal }}
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+          <button id="runButton" type="submit" class="save btn btn-primary">Lancer</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -2,7 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Run
-from .forms import RunForm
+from .forms import RunSelectionForm, RunParametersForm
 from django.contrib.auth.decorators import login_required
 
 def run_list(request):
@@ -22,16 +22,33 @@ def run_detail(request, pk):
     return render(request, 'dgp/run_detail.html', {'run': run})
 
 @login_required
-def newRun(request):
+def newSelectionRun(request):
     if request.method == "POST":
-        form = RunForm(request.POST)
-        if form.is_valid():
-            run = form.save(commit=False)
+        print(request.POST)
+        selectionForm= RunSelectionForm(request.POST)
+        if selectionForm.is_valid():
+            run = selectionForm.save(commit=False)
             run.user = request.user
             run.date = timezone.now()
-            run.log = "Ceci n'est pas un log"
+            run.log = "Ceci n'est pas un log de RunSelectionForm"
             run.save()
             return redirect('run_detail', pk=run.pk)
     else:
-        form = RunForm()
-    return render(request, 'dgp/newRun.html', {'form': form})
+        selectionForm = RunSelectionForm()
+    return render(request, 'dgp/newSelectionRun.html', {'selectionForm': selectionForm})
+
+@login_required
+def newParametersRun(request):
+    if request.method == "POST":
+        parametersForm = RunParametersForm(request.POST)
+        if parametersForm.is_valid():
+            #Test validité paramètres saisis
+            run = parametersForm.save(commit=False)
+            run.user = request.user
+            run.date = timezone.now()
+            run.log = "Ceci n'est pas un log de RunParametersForm"
+            run.save()
+            return redirect('run_detail', pk=run.pk)
+    else:
+        parametersForm = RunParametersForm()
+    return render(request, 'dgp/newParametersRun.html', {'parametersForm':parametersForm})

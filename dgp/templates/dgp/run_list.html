@@ -6,6 +6,7 @@
     <table class="table">
       <tr>
         <th>Cible</th>
+        <th>Plateforme</th>
         <th>Type</th>
         <th>Date</th>
         <th>Utilisateur</th>
@@ -13,12 +14,13 @@
     {% for run in runs %}
             <tr>
               <td><a href="{% url 'run_detail' pk=run.pk %}">{{ run.target }}</a></td>
+              <td>{{ run.platform}}</td>
               <td>{{ run.typeCol}}</td>
               <td>{{ run.date }}</td>
               <td>{{ run.user }}</td>
           </tr>
     {% endfor %}
-    <tr><td colspan="4">
+    <tr><td colspan="5">
     <div class="dgp-tablepagination">
     <span>
         {% if runs.has_previous %}
@@ -35,5 +37,8 @@
   </td></tr>
   </table>
   <!-- <hr> -->
-  <a class="btn btn-primary" href="{% url 'newRun' %}">Nouvelle exécution</a>
+  <h3>Nouvelle exécution par
+  <a class="btn btn-primary" href="{% url 'newSelectionRun' %}">sélection</a>
+  <a class="btn btn-primary" href="{% url 'newParametersRun' %}">paramètres</a>
+</h3>
 {% endblock content %}
